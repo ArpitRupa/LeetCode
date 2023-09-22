@@ -5,13 +5,22 @@
 //     1 <= s.length <= 1000
 //     s consists only of lowercase English letters.
 
-namespace LongestPalindromeSubseq
+namespace LeetcodeSolutions
 {
-    public class Solution
+    public class LongestPalindromeSubseq
     {
-        private int LongestPalindromeSubseq(string s)
+        private int Solution(string s)
         {
             return 0;
         }
+
+        public void Test(string testCase, int expected)
+        {
+            LongestPalindromeSubseq solution = new LongestPalindromeSubseq();
+            int result = solution.Solution(testCase);
+            Console.WriteLine($"{result}, expected: {expected}");
+        }
+
+
     }
 }

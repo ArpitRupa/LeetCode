@@ -11,11 +11,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LongestPaldindrome
+namespace LeetcodeSolutions
 {
-    public class Solution
+    public class LongestPaldindrome : SolutionClass
     {
-        private int LongestPalindrome(string s)
+        protected override int Solution(string s)
         {
             //store the count for palindrom length
             int maxPalindromeLength = 0;
@@ -36,40 +36,24 @@ namespace LongestPaldindrome
                 }
             }
 
-            //loop dict to 
+            //loop dict to get length from pairs of letters
             foreach (var kvp in dictionary)
             {
+                //floor division by 2 then *2 to get true pair count
                 int pairCount = (int)Math.Floor((double)kvp.Value / 2);
                 maxPalindromeLength += 2 * pairCount;
-                //mod to see if we add 1 to palindrom length at end
+                //mod to see if we add 1 to palindrome length at end
                 if (kvp.Value % 2 == 0)
                 {
                     dictionary.Remove(kvp.Key);
                 }
             }
+            //dict cannot be empty in order to add one to count
             if (dictionary.Count > 0)
             {
                 maxPalindromeLength += 1;
             }
             return maxPalindromeLength;
-        }
-
-        private static void Test(string testCase, int expected)
-        {
-            Solution solution = new Solution();
-            int result = solution.LongestPalindrome(testCase);
-            Console.WriteLine($"{result}, expected: {expected}");
-        }
-
-        private static void Main()
-        {
-
-            Test("abccccdd", 7);
-            Test("a", 1);
-            Test("nolemonnomelon", 14);
-            Test("racecar", 7);
-            Test("wasitacaroracatisaw", 19);
-            Test("aA", 1);
         }
 
     }
