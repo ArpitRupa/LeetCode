@@ -13,7 +13,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace LeetcodeSolutions
 {
-    public class LongestPaldindrome : SolutionClass
+    public class LongestPaldindrome : SolutionClass<string, int>
     {
         protected override int Solution(string s)
         {
@@ -21,23 +21,16 @@ namespace LeetcodeSolutions
             int maxPalindromeLength = 0;
 
             //dictionary for count of each char in string
-            Dictionary<char, int> dictionary = new Dictionary<char, int>();
+            Dictionary<char, int> charCountDict = new Dictionary<char, int>();
 
             //loop to count chars
             foreach (var character in s)
             {
-                if (dictionary.ContainsKey(character))
-                {
-                    dictionary[character] += 1;
-                }
-                else
-                {
-                    dictionary[character] = 1;
-                }
+                charCountDict[character] = charCountDict.ContainsKey(character) ? charCountDict[character] + 1 : 1;
             }
 
             //loop dict to get length from pairs of letters
-            foreach (var kvp in dictionary)
+            foreach (var kvp in charCountDict)
             {
                 //floor division by 2 then *2 to get true pair count
                 int pairCount = (int)Math.Floor((double)kvp.Value / 2);
@@ -45,11 +38,11 @@ namespace LeetcodeSolutions
                 //mod to see if we add 1 to palindrome length at end
                 if (kvp.Value % 2 == 0)
                 {
-                    dictionary.Remove(kvp.Key);
+                    charCountDict.Remove(kvp.Key);
                 }
             }
             //dict cannot be empty in order to add one to count
-            if (dictionary.Count > 0)
+            if (charCountDict.Count > 0)
             {
                 maxPalindromeLength += 1;
             }

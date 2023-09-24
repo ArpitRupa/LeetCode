@@ -1,12 +1,13 @@
 
 namespace LeetcodeSolutions
 {
-    public abstract class SolutionClass
+    //TInput and TOutput used as generics for abstract class
+    public abstract class SolutionClass<TInput, TOutput>
     {
-        protected abstract int Solution(string s);
-        public void Test(string testCase, int expected)
+        protected abstract TOutput Solution(TInput input);
+        public void Test(TInput testCase, TOutput expected)
         {
-            int result = this.Solution(testCase);
+            TOutput result = this.Solution(testCase);
             Console.WriteLine($"{result}, expected: {expected}");
         }
     }
