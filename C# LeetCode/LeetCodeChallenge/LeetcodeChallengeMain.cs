@@ -26,11 +26,22 @@ public class ProgramEntryPoint
 
         //ValidateBST testcases
         Console.WriteLine("----Validate--BST----");
-        BinarySearchTree test1 = new(new List<int?> { 2, 1, 3 });
+        BinarySearchTree test1 = new(new List<int?> { 2, 1, 3 }, true);
         test1.PrintInOrderTraversal();
         validateBST.Test(test1.root, true);
-        BinarySearchTree test2 = new(new List<int?> { 5, 1, 4, null, null, 3, 6 });
+        BinarySearchTree test2 = new(new List<int?> { 5, 1, 4, null, null, 3, 6 }, true);
         test2.PrintInOrderTraversal();
         validateBST.Test(test2.root, false);
+
+        //BST Functionality testcases
+        Console.WriteLine("----BST--Functionality----");
+        BinarySearchTree testBST = new(new List<int?> { 8, 5, 10, 3, 7, 12, 2, 4 }, false);
+        testBST.PrintInOrderTraversal();
+        Console.WriteLine(testBST.GetMaximumNode().val);
+        Console.WriteLine(testBST.GetMinimumNode().val);
+        testBST.DeleteNodeByValue(5);
+        testBST.PrintInOrderTraversal();
+        Console.WriteLine(testBST.GetMaximumNode().val);
+        Console.WriteLine(testBST.GetMinimumNode().val);
     }
 }
