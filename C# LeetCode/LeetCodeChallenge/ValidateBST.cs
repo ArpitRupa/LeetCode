@@ -15,7 +15,7 @@ class ValidateBST : SolutionClass<TreeNode, bool>
 {
 
     // Initialize the list as an instance variable
-    private List<int> inOrderTree = new List<int>();
+    private List<int> inOrderTree = new();
 
     //run recursively on each sub tree
     protected override bool Solution(TreeNode root)

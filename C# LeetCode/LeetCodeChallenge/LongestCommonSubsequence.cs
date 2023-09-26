@@ -15,7 +15,7 @@ namespace LeetcodeSolutions
         {
             // int maxSeqLength = 0;
 
-            Dictionary<char, int> charCountDict = new Dictionary<char, int>();
+            Dictionary<char, int> charCountDict = new();
 
             foreach (var character in s)
             {

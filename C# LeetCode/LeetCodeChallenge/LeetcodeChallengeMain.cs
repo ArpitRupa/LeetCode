@@ -43,5 +43,16 @@ public class ProgramEntryPoint
         testBST.PrintInOrderTraversal();
         Console.WriteLine(testBST.GetMaximumNode().val);
         Console.WriteLine(testBST.GetMinimumNode().val);
+
+        //InsertionSort testcases
+        Console.WriteLine("----Insertion--Sort----");
+        InsertionSort insSort = new(intList: new List<int> { 4, 2, 1, 3 });
+        insSort.PrintLinkedList();
+        insSort.Sort();
+        insSort.PrintLinkedList("Expected: 1 2 3 4");
+        Console.WriteLine(insSort.CheckSorted());
+
+
+
     }
 }

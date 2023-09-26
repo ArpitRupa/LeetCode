@@ -5,7 +5,7 @@ namespace LeetcodeSolutions
     public abstract class SolutionClass<TInput, TOutput>
     {
         protected abstract TOutput Solution(TInput input);
-        public void Test(TInput testCase, TOutput expected)
+        public virtual void Test(TInput testCase, TOutput expected)
         {
             TOutput result = this.Solution(testCase);
             Console.WriteLine($"{result}, expected: {expected}");
