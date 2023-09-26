@@ -19,11 +19,6 @@ public class ProgramEntryPoint
         longestPaldindrome.Test("wasitacaroracatisaw", 19);
         longestPaldindrome.Test("aA", 1);
 
-        //LongestCommonSubSeq testcases
-        Console.WriteLine("----LCS----");
-        longestCommonSubseq.Test("bbbab", 4);
-        longestCommonSubseq.Test("cbbd", 2);
-
         //ValidateBST testcases
         Console.WriteLine("----Validate--BST----");
         BinarySearchTree test1 = new(new List<int?> { 2, 1, 3 }, true);
@@ -52,7 +47,11 @@ public class ProgramEntryPoint
         insSort.PrintLinkedList("Expected: 1 2 3 4");
         Console.WriteLine(insSort.CheckSorted());
 
-
+        //LongestCommonSubSeq testcases
+        Console.WriteLine("----Longest--Common--Subseq----");
+        LongestCommonSubseq subSeq = new();
+        subSeq.Test(("ace", "abcde"), 3);
+        subSeq.PrintMatrix();
 
     }
 }
