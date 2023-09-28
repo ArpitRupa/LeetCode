@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -18,8 +17,18 @@ import java.util.List;
 // Follow up: Your algorithm's time complexity must be better than O(n log n),
 // where n is the array's size.
 
+// my solution time complexity: O(n*k)
+
 class TopKFreqElem {
 
+    /**
+     * Takes an array (nums) and int (k) and returns the k most frequent elements in
+     * nums
+     *
+     * @param nums The array of elements.
+     * @param k    Number of elements to return.
+     * @return Array of most frequent elements of len k.
+     */
     public int[] topKFrequent(int[] nums, int k) {
 
         // HashMap to store frequency of elements
@@ -90,20 +99,12 @@ class TopKFreqElem {
                 currentMin.setFrequency(tempList[2]);
                 currentMinIndex = tempList[0];
 
-                System.out.println("LOOP Index: " + currentMinIndex);
             }
-
-            printTupleList(topKTuples);
-            System.out.println("Ele: " + currentMin.getElement());
-            System.out.println("Freq: " + currentMin.getFrequency());
-            System.out.println("Index: " + currentMinIndex);
         }
-
-        printHashMap(elementFrequency);
 
         int[] topKElements = new int[k];
 
-        // generate list of top elements
+        // generate array of top elements
         for (int i = 0; i < topKElements.length; i++) {
             topKElements[i] = topKTuples.get(i).getElement();
         }

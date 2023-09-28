@@ -7,6 +7,7 @@
 //     1 <= coins[i] <= 231 - 1
 //     0 <= amount <= 104
 
+// my solution time complexity: O(amount*n)
 public class CoinChange {
 
     /**
