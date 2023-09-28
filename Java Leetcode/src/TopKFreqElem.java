@@ -27,6 +27,11 @@ class TopKFreqElem {
 
         // List of tuple to store top elements and their frequency
         List<Tuple> topKTuples = new ArrayList<>();
+        // tracks current min of top K frequency
+        Tuple currentMin = new Tuple(nums[0], 0);
+        int currentMinIndex = 0;
+
+        int[] tempList = new int[3];
 
         // iterate through the provided array
         for (int index = 0; index < nums.length; index++) {
@@ -45,10 +50,6 @@ class TopKFreqElem {
             // current element's frequency via the hash map
             int hashFrequency = elementFrequency.get(nums[index]);
 
-            if (index == 0) {
-                topKTuples.add(new Tuple(nums[index], hashFrequency));
-            }
-
             boolean found = false;
             // iterate through the arraylist of top frequency tuple
             for (int topKIndex = 0; topKIndex < topKTuples.size(); topKIndex++) {
@@ -59,6 +60,11 @@ class TopKFreqElem {
                 if (currentTopKElement == nums[index]) {
                     // set tuple's frequency to hashmap's
                     topKTuples.get(topKIndex).setFrequency(hashFrequency);
+                    tempList = findMinFrequencyIndex(topKTuples);
+
+                    currentMin.setElement(tempList[1]);
+                    currentMin.setFrequency(tempList[2]);
+                    currentMinIndex = tempList[0];
                     found = true;
                     break;
                 }
@@ -66,15 +72,34 @@ class TopKFreqElem {
             if (!found && topKTuples.size() < k) {
                 // if not in list, just add it
                 topKTuples.add(new Tuple(nums[index], hashFrequency));
+
+                currentMin.setElement(nums[index]);
+                currentMin.setFrequency(hashFrequency);
+                currentMinIndex = topKTuples.size() - 1;
             }
 
             // if new value count is greater than current least count
-            if (topKTuples.get(0).getFrequency() < elementFrequency.get(nums[index]) && !found) {
+            if (topKTuples.get(currentMinIndex).getFrequency() < hashFrequency && !found) {
+                currentMin.setElement(nums[index]);
+                currentMin.setFrequency(hashFrequency);
                 // update count
-                topKTuples.set(0, new Tuple(nums[index], elementFrequency.get(nums[index])));
+                topKTuples.set(currentMinIndex, new Tuple(nums[index], hashFrequency));
+                tempList = findMinFrequencyIndex(topKTuples);
+
+                currentMin.setElement(tempList[1]);
+                currentMin.setFrequency(tempList[2]);
+                currentMinIndex = tempList[0];
+
+                System.out.println("LOOP Index: " + currentMinIndex);
             }
-            Collections.sort(topKTuples, Comparator.comparingInt(Tuple::getFrequency));
+
+            printTupleList(topKTuples);
+            System.out.println("Ele: " + currentMin.getElement());
+            System.out.println("Freq: " + currentMin.getFrequency());
+            System.out.println("Index: " + currentMinIndex);
         }
+
+        printHashMap(elementFrequency);
 
         int[] topKElements = new int[k];
 
@@ -116,6 +141,33 @@ class TopKFreqElem {
         for (Tuple tuple : tupleList) {
             System.out.println("Element: " + tuple.getElement() + " Frequency: " + tuple.getFrequency());
         }
+    }
+
+    public static int[] findMinFrequencyIndex(List<Tuple> tupleList) {
+        if (tupleList.isEmpty()) {
+            return null; // Return -1 if the list is empty
+        }
+
+        int[] results = new int[3];
+        int minIndex = 0; // Assume the first tuple has the minimum frequency
+        int minFrequency = tupleList.get(0).getFrequency();
+        int minElement = tupleList.get(0).getElement();
+
+        for (int i = 1; i < tupleList.size(); i++) {
+            int currentFrequency = tupleList.get(i).getFrequency();
+
+            if (currentFrequency < minFrequency) {
+                // Update minIndex and minFrequency if a smaller frequency is found
+                minIndex = i;
+                minFrequency = currentFrequency;
+                minElement = tupleList.get(i).getElement();
+            }
+        }
+
+        results[0] = minIndex;
+        results[1] = minElement;
+        results[2] = minFrequency;
+        return results;
     }
 
 }
