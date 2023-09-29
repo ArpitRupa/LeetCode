@@ -1,6 +1,6 @@
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         // Coin Change
         System.out.println("-----Coin--Change-----");
@@ -32,15 +32,14 @@ public class App {
         System.out.println("Expected: 0");
 
         // Integer to Roman
-        System.out.println("-----Integer--To--Roman-----")
+        System.out.println("-----Integer--To--Roman-----");
         IntegerToRoman intToRoman = new IntegerToRoman();
-        intToRoman.intToRoman(3);
+        System.out.println(intToRoman.intToRoman(3));
         System.out.println("Expected: III");
-        intToRoman.intToRoman(58);
+        System.out.println(intToRoman.intToRoman(58));
         System.out.println("Expected: LVIII");
-        intToRoman.intToRoman(1998);
+        System.out.println(intToRoman.intToRoman(1994));
         System.out.println("Expected: MCMXCIV");
-
 
     }
 }
