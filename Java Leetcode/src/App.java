@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
@@ -40,6 +41,19 @@ public class App {
         System.out.println("Expected: LVIII");
         System.out.println(intToRoman.intToRoman(1994));
         System.out.println("Expected: MCMXCIV");
+
+        // TwoSumSorted
+        System.out.println("-----Two--Sum--Sorted-----");
+        TwoSumSorted twoSum = new TwoSumSorted();
+        int[] nums = { 2, 7, 11, 15 };
+        System.out.println(Arrays.toString(twoSum.twoSum(nums, 9)));
+        System.out.println("Expected: [1,2]");
+        int[] nums2 = { 2, 3, 4 };
+        System.out.println(Arrays.toString(twoSum.twoSum(nums2, 6)));
+        System.out.println("Expected: [1,3]");
+        int[] nums3 = { -1, 0 };
+        System.out.println(Arrays.toString(twoSum.twoSum(nums3, -1)));
+        System.out.println("Expected: [1,2]");
 
     }
 }
