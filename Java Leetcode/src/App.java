@@ -10,7 +10,7 @@ public class App {
         System.out.println("Expected: 20");
 
         // LCSS
-        System.out.println("----------");
+        System.out.println("-----LCSS-----");
         LongestCommonSubstring lcss = new LongestCommonSubstring();
         String a = "abcdxyz";
         String b = "xyzabcd";
@@ -32,6 +32,15 @@ public class App {
         System.out.println("Expected: 0");
 
         // Integer to Roman
+        System.out.println("-----Integer--To--Roman-----")
+        IntegerToRoman intToRoman = new IntegerToRoman();
+        intToRoman.intToRoman(3);
+        System.out.println("Expected: III");
+        intToRoman.intToRoman(58);
+        System.out.println("Expected: LVIII");
+        intToRoman.intToRoman(1998);
+        System.out.println("Expected: MCMXCIV");
+
 
     }
 }
