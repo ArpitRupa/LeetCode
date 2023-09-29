@@ -23,9 +23,39 @@
 
 public class IntegerToRoman {
 
+    /**
+     * Takes an int (num) and returns the roman numeral equivalent as a string
+     *
+     * @param int num to convert to roman numeral
+     * @return Roman numeral String equivalent of int parameter provided
+     */
+
     public String intToRoman(int num) {
 
-        return "";
+        String[] romanNums = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+        int[] naturalNums = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+
+        String roman = "";
+        int currentNum = num;
+
+        int floorFactor = 0;
+
+        for (int i = 0; i < romanNums.length; i++) {
+
+            while (naturalNums[i] <= currentNum) {
+
+                // get factor from floor division
+                floorFactor = currentNum / naturalNums[i];
+
+                // add roman character depending on the floor division
+                roman += romanNums[i].repeat(floorFactor);
+
+                // update current num value by subtracting factor * natNums[i]
+                currentNum = currentNum - (floorFactor * naturalNums[i]);
+            }
+        }
+
+        return roman;
     }
 
 }
