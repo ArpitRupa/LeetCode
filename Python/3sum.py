@@ -26,12 +26,6 @@ class ThreeSum:
                 # list of current triplets
                 current_triplet = [nums[i], nums[j], nums[k]]
 
-                if (i == j):
-                    j += 1
-                    continue
-                elif i == k:
-                    k -= 1
-                    continue
                 # sum of triplets
                 triplet_sum = sum(current_triplet)
 
