@@ -16,12 +16,12 @@ class ThreeSum:
         all_triplets = set()
 
         # iterate through the list
-        for i in range(len(nums)):
-            j = 0
+        for i in range(len(nums)-2):
+            j = i + 1
             k = len(nums)-1
             current_triplet = [nums[i], nums[j], nums[k]]
 
-            while (True):
+            while (j < k):
 
                 # list of current triplets
                 current_triplet = [nums[i], nums[j], nums[k]]
@@ -32,13 +32,13 @@ class ThreeSum:
                 elif i == k:
                     k -= 1
                     continue
-                elif j == k:
-                    break
                 # sum of triplets
                 triplet_sum = sum(current_triplet)
 
                 if triplet_sum == 0:
                     all_triplets.add(tuple(sorted(current_triplet)))
+                    j += 1
+                    k -= 1
                 elif triplet_sum > 0:
                     k -= 1
                 elif triplet_sum < 0:
