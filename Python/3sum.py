@@ -2,6 +2,7 @@
 
 # Notice that the solution set must not contain duplicate triplets.
 
+# My solution runtime: O(n^2)
 
 from typing import List
 
