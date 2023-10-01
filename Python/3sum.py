@@ -45,27 +45,23 @@ class ThreeSum:
 # My soltuion time compexity:
 # O(n^3)
 
-# from typing import List
+    def threeSumBruteForce(self, nums: List[int]) -> List[List[int]]:
+        # set to store triplets
+        all_triplets = set()
 
+        # iterate through the list
+        for i in range(len(nums)):
+            for j in range(i):
+                for k in range(j):
 
-# class ThreeSum:
-#     def threeSum(self, nums: List[int]) -> List[List[int]]:
-#         # set to store triplets
-#         all_triplets = set()
+                    # if indicies are same skip the iteration
+                    if (i == j or i == k or j == k):
+                        continue
 
-#         # iterate through the list
-#         for i in range(len(nums)):
-#             for j in range(i):
-#                 for k in range(j):
+                    # list of current triplets
+                    current_triplet = [nums[i], nums[j], nums[k]]
 
-#                     # if indicies are same skip the iteration
-#                     if (i == j or i == k or j == k):
-#                         continue
-
-#                     # list of current triplets
-#                     current_triplet = [nums[i], nums[j], nums[k]]
-
-#                     # if sum of the triplet == 0, add to the set
-#                     if sum(current_triplet) == 0:
-#                         all_triplets.add(tuple(sorted(current_triplet)))
-#         return all_triplets
+                    # if sum of the triplet == 0, add to the set
+                    if sum(current_triplet) == 0:
+                        all_triplets.add(tuple(sorted(current_triplet)))
+        return all_triplets
