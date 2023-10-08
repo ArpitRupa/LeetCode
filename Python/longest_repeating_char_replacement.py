@@ -14,7 +14,7 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
 
-        ax_length = 0
+        max_length = 0
         max_count = 0
         left = 0
         freq_map = {}
