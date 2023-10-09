@@ -40,6 +40,3 @@ class Solution:
                 max_profit = max(profit, max_profit)
 
         return max_profit
-
-
-[3, 2, 3, 4, ]
