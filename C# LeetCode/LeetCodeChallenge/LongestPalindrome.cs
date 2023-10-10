@@ -7,6 +7,12 @@
 //     1 <= s.length <= 2000
 //     s consists of lowercase and/or uppercase English letters only.
 
+//O(n) n=len of string
+
+
+// make dict of chars in string
+// iterate through the dictionary to see how many pairs of chars we have for the palindrome
+// check to see if any odd occurances to see if we should add 1 to the max length
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

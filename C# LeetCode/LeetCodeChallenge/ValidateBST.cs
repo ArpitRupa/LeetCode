@@ -8,6 +8,13 @@
 //     The number of nodes in the tree is in the range [1, 104].
 //     -231 <= Node.val <= 231 - 1
 
+
+// My Runtime:
+// O(n) n = number of nodes in tree
+
+// use a list to populate the in-order-traversal of the tree
+// loop through the list to see if the tree is valid
+
 using System.Reflection.Metadata.Ecma335;
 using LeetcodeSolutions;
 

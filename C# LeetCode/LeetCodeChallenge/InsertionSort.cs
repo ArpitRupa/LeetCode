@@ -6,6 +6,8 @@
 //     At each iteration, insertion sort removes one element from the input data, finds the location it belongs within the sorted list and inserts it there.
 //     It repeats until no input elements remain.
 
+// Runtime:
+// O(n^2)
 
 using System.Diagnostics.Metrics;
 using System.Net.Http.Headers;

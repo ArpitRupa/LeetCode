@@ -7,6 +7,14 @@
 //     1 <= text1.length, text2.length <= 1000
 //     text1 and text2 consist of only lowercase English characters.
 
+// My Runtime:
+// O(n*m) n = len of str1 and m = len of str2
+
+// create a len(str1) + 1 X len(str2) + 1 matrix
+// iterate through matrix cells
+// set cell value to revious cell plus 1 if match in char
+// or set it to max of previous cell/top cell if no match
+// the last cell will have the max subseq
 using Microsoft.VisualBasic;
 
 namespace LeetcodeSolutions
@@ -30,7 +38,7 @@ namespace LeetcodeSolutions
             {
                 for (int j = 1; j < matrixCols; j++)
                 {
-                    //need to do -1 to accouint for extra rows/columns
+                    //need to do -1 to account for extra rows/columns
                     if (text1[i - 1] == text2[j - 1])
                     {
                         //add one to previous row cell
@@ -46,7 +54,6 @@ namespace LeetcodeSolutions
 
             this.matrix = matrix;
             return matrix[text1.Length, text2.Length];
-
         }
 
         public void PrintMatrix()
