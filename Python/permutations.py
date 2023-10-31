@@ -3,7 +3,6 @@
 
 
 from typing import List
-import copy
 
 
 class Solution:
@@ -17,7 +16,7 @@ class Solution:
 
         # base case
         if len(nums) == 1:
-            return [nums]
+            return [nums[:]]
 
         # get permutations of elements after first index
         sub_permutations = self.permute(nums[1:])
@@ -30,7 +29,7 @@ class Solution:
             for index in range(len(current_permutation)):
 
                 # create deep copy of list
-                new_permutation = copy.deepcopy(current_permutation)
+                new_permutation = current_permutation[:]
 
                 # insert into current index
                 new_permutation.insert(index, nums[0])
@@ -38,7 +37,7 @@ class Solution:
                 total_permutations.append(new_permutation)
 
             # create final permutation where element is at the end of the list
-            final_permuation = copy.deepcopy(current_permutation)
+            final_permuation = current_permutation[:]
             final_permuation.append(nums[0])
 
             total_permutations.append(final_permuation)
